@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSnackbar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="874.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw2.FXMLDocumentController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="54.0" prefHeight="387.0" prefWidth="223.0" style="-fx-background-color: #ffcece;">
+         <children>
+            <TextField fx:id="name" layoutX="19.0" layoutY="16.0" prefHeight="25.0" prefWidth="189.0" promptText=" Name" />
+            <TextField fx:id="email" layoutX="17.0" layoutY="46.0" prefHeight="25.0" prefWidth="189.0" promptText="Email" />
+            <TextField fx:id="mobileNm" layoutX="87.0" layoutY="78.0" prefHeight="25.0" prefWidth="121.0" promptText="Mobile Number" />
+            <Button layoutX="22.0" layoutY="169.0" mnemonicParsing="false" onAction="#addAction" prefHeight="25.0" prefWidth="180.0" text="Add" />
+            <Button layoutX="22.0" layoutY="202.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="25.0" prefWidth="180.0" text="Clear" />
+            <ComboBox fx:id="number" layoutX="14.0" layoutY="78.0" prefHeight="25.0" prefWidth="70.0" promptText="059/056" />
+            <RadioButton fx:id="male" layoutX="14.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Male">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="female" layoutX="132.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Female" toggleGroup="$gender" />
+            <ComboBox fx:id="jobT" layoutX="15.0" layoutY="110.0" prefHeight="25.0" prefWidth="189.0" promptText="job" />
+            <Button layoutX="23.0" layoutY="235.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="25.0" prefWidth="180.0" text="Delete" />
+            <Button layoutX="23.0" layoutY="267.0" mnemonicParsing="false" onAction="#deleteAllRowsAction" prefHeight="25.0" prefWidth="180.0" text="Delete All Rows" />
+            <Button layoutX="22.0" layoutY="299.0" mnemonicParsing="false" onAction="#saveToExcelAction" prefHeight="25.0" prefWidth="180.0" text="Save to Excel File" />
+            <HBox layoutX="10.0" layoutY="334.0" prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <JFXSnackbar fx:id="Msg" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="dataTableView" layoutX="256.0" layoutY="51.0" prefHeight="393.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="98.0" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="Name" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="125.0" text="Email">
+               <cellValueFactory>
+                    <PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130.0" text="Mobile Phone">
+                   <cellValueFactory>
+                    <PropertyValueFactory property="mobileNumber" />                  
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="141.0" text="Job Title">
+               <cellValueFactory>
+                    <PropertyValueFactory property="jobTitle" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="101.0" text="Gender">
+               <cellValueFactory>
+                    <PropertyValueFactory property="gender" />
+                </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
